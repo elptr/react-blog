@@ -5,6 +5,7 @@ import { Route, NavLink } from 'react-router-dom';
 
 import './Blog.css';
 import Posts from './Posts/Posts';
+import FullPost from './FullPost/FullPost'
 import NewPost from './NewPost/NewPost';
 class Blog extends Component {
 
@@ -40,8 +41,10 @@ class Blog extends Component {
 
                 {/*<Route exact path="/" render={() => (<h1>Home</h1>)}/>*/}
                 {/*<Route path="/" render={() => (<h1>Home 2</h1>)}/>*/}
-                <Route exact path="/" component={Posts}/>
+                <Route path="/" exact component={Posts}/>
                 <Route path="/new-post" component={NewPost}/>
+                <Route path="/:id" component={FullPost}/>
+                {/*Put this at the end, because it can catch previous path ???*/}
 
             </div>
         );
