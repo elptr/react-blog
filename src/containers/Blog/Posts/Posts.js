@@ -24,7 +24,7 @@ class Posts extends Component {
                 });
                 this.setState({posts: updatedPosts});
                 // console.log( response );
-            } )
+            })
             .catch(error => {
                 console.log(error);
                 // this.setState({error: true});
@@ -32,6 +32,7 @@ class Posts extends Component {
     }
 
     postSelectedHandler = (id) => {
+        console.log("postSelectedHandler " + id);
         this.setState({selectedPostId: id});
     }
     
@@ -39,6 +40,7 @@ class Posts extends Component {
         let posts = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
         if (!this.state.error) {
             posts = this.state.posts.map(post => {
+                console.log('inside posts map ' + post.id)
                 return (
                     <Link to={'/' + post.id} key={post.id}>
                         <Post
