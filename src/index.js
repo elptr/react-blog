@@ -11,22 +11,22 @@ axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 axios.defaults.headers.post['Content-Type'] = 'application/json'; //you don't need it is default anyway
 
 axios.interceptors.request.use(requestConfig =>{
-    console.log(requestConfig);
+    // console.log(requestConfig);
     //Edit requestConfig, add headers or sth
     return requestConfig;
 }, error => {
-    console.log(error);
+    // console.log(error);
     //To show sth in UI and store sth globally in log file for example
     //when no internet?
     return Promise.reject(error)
     });
 
 axios.interceptors.response.use(responseSuccess =>{
-    console.log(responseSuccess);
+    // console.log(responseSuccess);
     //Edit requestConfig, add headers or sth
     return responseSuccess;
 }, error => {
-    console.log(error);
+    // console.log(error);
     //To show sth in UI and store sth globally in log file for example
     //when no internet?
     return Promise.reject(error)

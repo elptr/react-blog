@@ -9,13 +9,10 @@ class FullPost extends Component {
     }
 
     componentDidMount () {
-        console.log("FullPost, componentDidMount " + this.props.match.params.id);
         if(this.props.match.params.id){ //update only if we id !== null
             if(!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.match.params.id)){
-                console.log("!this.state.loadedPost yes");
                 axios.get('/posts/' + this.props.match.params.id)
                     .then(responseObj => {
-                        console.log(responseObj);
                         this.setState({loadedPost:responseObj.data})
                     })
                     .catch(error => {
@@ -33,7 +30,6 @@ class FullPost extends Component {
             });
     }
     render () {
-        console.log("Full Post Render + id", this.props.match.params.id);
         let post = <p style={{textAlign:'center'}}>Please select a Post!</p>;
         if(this.props.id){
             post = <p style={{textAlign:'center'}}>Loading...!</p>;
